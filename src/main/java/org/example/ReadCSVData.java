@@ -1,42 +1,37 @@
 package org.example;
 
-import java.io.FileReader;
 import com.opencsv.*;
-import java.util.List;
-import java.util.Scanner;
+import com.opencsv.exceptions.CsvValidationException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-public class ReadCSVData {
+import java.io.IOException;
+import java.io.StringReader;
+
+public class CsvStringToJson {
     public static void main(String[] args) {
-        
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your CSV file path: ");
-        String csvFile = scanner.next();
-
-        System.out.println("___________________ Start of Data ___________________");
-        readData(csvFile);
-        System.out.println("____________________ End of Data ____________________");
-        
+        Converter();
     }
 
-    public static void readData(String file)
-    {
-        try {
-            FileReader fileReader = new FileReader(file);
-            CSVReader csvReader = new CSVReaderBuilder(fileReader)
-                    .withSkipLines(1)
-                    .build();
-            List<String[]> allData = csvReader.readAll();
+    public static void Converter() {
+        String CSVin = "";
+        JSONArray jsonArray = new JSONArray();
+        String[] line;
 
-            // print Data
-            for (String[] row : allData) {
-                for (String cell : row) {
-                    System.out.print(cell + "\t");
+        try(CSVReader r = new CSVReader(new StringReader(CSVin))) {
+            String[] headers = r.readNext();
+
+            while((line = r.readNext()) != null) {
+                String[] values = line;
+                JSONObject obj = new JSONObject();
+                for (int i = 0; i < values.length; i++) {
+                    obj.put(headers[i], values[i]);
                 }
-                System.out.println();
+                jsonArray.put(obj);
             }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(jsonArray.toString(1));
+        } catch (IOException | CsvValidationException e) {
+            throw new RuntimeException(e);
         }
     }
 }
