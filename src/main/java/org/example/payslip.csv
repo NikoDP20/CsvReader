@@ -1,4 +1,0 @@
-lnrCode	startDate	endDate	firstName	lastName	jobRole	jobSummary	assignmentType	activityLocation	paymentTerms	maxNumDays	dayRateExVat	maxFinancialCommit	currencyCode	expenses	richemontContact	supplierContact
-AB00 AB00 B00	12/01/1234	13/01/1234	peter	Smith	Developer	Works on a e-commerce project	Time based	Onsite	Payable Monthly	60	500	"4,000"	CHF 	Richemont Travel Policy	Jane Doe	john Doe(JD@example.com)
-AB00 AB00 B01	12/01/1235	13/01/1235	steve	bree	analyst	analylises	Salary	Remote	Payable Monthly	30	900	"90,000"	CHF 	None	Jane Doe	jim Donald(JD@example.com)
-AB00 AB00 B02	12/01/1236	13/01/1236	john	Smith	maintance	fixes	Time Based	Onsite	Payable Monthly	90	120	"6,000"	GBP	Richemont Travel Policy	Jane Doe	joe brees(JD@example.com)
