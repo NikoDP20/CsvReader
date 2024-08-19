@@ -1,4 +1,4 @@
-package org.example;
+package org.CsvToJson;
 
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvValidationException;
